@@ -25,7 +25,7 @@ module.exports = {
 }
 ```
 
-The `lang` option accepts the name file placed on the [locale dir](http://vee-validate.logaretm.com/localization.html#localized-files) of Vee-Validate repository without the extension.
+The `lang` option accepts the name file placed on the [locale dir](https://github.com/baianat/vee-validate/tree/master/locale) of Vee-Validate repository without the extension.
 
 ## Documentation
 

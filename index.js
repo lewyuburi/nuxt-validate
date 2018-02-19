@@ -13,11 +13,11 @@ module.exports = function nuxtValidate (moduleOptions) {
 
   // Register plugin
   this.addPlugin({
-    src: resolve(__dirname, 'veeValidate.js'),
+    src: resolve(__dirname, 'plugin.js'),
     fileName: 'vee-validate.js',
     options: {
       nuxtValidateOptions,
-      lang: options.lang
+      lang: moduleOptions.lang
     }
   })
 }

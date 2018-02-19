@@ -1,6 +1,6 @@
 {
   "name": "nuxt-validate",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Simple Nuxt input validation module using vee-validate",
   "main": "index.js",
   "scripts": {

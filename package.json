@@ -28,6 +28,6 @@
   },
   "homepage": "https://github.com/lewyuburi/nuxt-validate#readme",
   "dependencies": {
-    "vee-validate": "^2.0.4"
+    "vee-validate": "^2.1.2"
   }
 }

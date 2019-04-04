@@ -1,12 +1,10 @@
 # Nuxt Validate
 
-<p align="center">
+<p>
   <a href="https://www.npmjs.com/package/nuxt-validate"><img src="https://badgen.net/npm/dm/nuxt-validate" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/nuxt-validate"><img src="https://badgen.net/npm/v/nuxt-validate" alt="Version"></a>
   <a href="https://www.npmjs.com/package/nuxt-validate"><img src="https://badgen.net/npm/license/nuxt-validate" alt="License"></a>
  </p>
-
-#
 
 Nuxt.js module for validations using [Vee-Validate](https://github.com/baianat/vee-validate) 
 

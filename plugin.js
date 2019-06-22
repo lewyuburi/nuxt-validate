@@ -13,7 +13,7 @@ export default ({ app }, inject) => {
 
   <% if (options.nuxti18n) { %>
   const nuxti18n = <%= JSON.stringify(options.nuxti18n) %>
-  if (nuxti18n.locale) {
+  if (nuxti18n.locale && app.i18n && !app.i18n.beforeLanguageSwitch) {
     const validatorLocale = nuxti18n.locale[app.i18n.locale] ? nuxti18n.locale[app.i18n.locale] : app.i18n.locale
     if (app.validator.locale !== validatorLocale) {
       import(`vee-validate/dist/locale/${validatorLocale}`).then(dic => {

@@ -10,6 +10,7 @@ module.exports = function nuxtValidate (moduleOptions) {
   // Remove module options
   const nuxtValidateOptions = Object.assign({}, options)
   delete nuxtValidateOptions.lang
+  delete nuxtValidateOptions.nuxti18n
 
   // Register plugin
   this.addPlugin({
@@ -17,7 +18,8 @@ module.exports = function nuxtValidate (moduleOptions) {
     fileName: 'vee-validate.js',
     options: {
       nuxtValidateOptions,
-      lang: moduleOptions.lang
+      lang: moduleOptions.lang,
+      nuxti18n: moduleOptions.nuxti18n
     }
   })
 }

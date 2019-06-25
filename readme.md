@@ -38,13 +38,13 @@ module.exports = {
 
 ### Configuration
 
-### `lang`
+#### `lang`
 
 - Default: `en`
 
 The `lang` option accepts the name file placed on the [locale dir](https://github.com/baianat/vee-validate/tree/master/locale) of Vee-Validate repository without the extension.
 
-### `nuxti18n`
+#### `nuxti18n`
 
 - Default: `undefined`
 

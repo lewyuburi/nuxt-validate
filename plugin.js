@@ -15,9 +15,15 @@ export default ({ app }, inject) => {
   app.validator = VeeValidate.Validator
 
   <% if (options.nuxti18n) { %>
+  const getLocale = (opt, locale) => {
+    if (typeof opt === 'object' && opt.locale[locale]) {
+      return opt.locale[locale]
+    }
+    return locale
+  }
   const nuxti18n = <%= JSON.stringify(options.nuxti18n) %>
-  if (nuxti18n.locale && app.i18n) {
-    const validatorLocale = nuxti18n.locale[app.i18n.locale] || app.i18n.locale
+  if (nuxti18n && app.i18n) {
+    const validatorLocale = getLocale(nuxti18n, app.i18n.locale)
     if (app.validator.locale !== validatorLocale) {
       import(`vee-validate/dist/locale/${validatorLocale}`).then(dic => {
         app.validator.localize(validatorLocale, dic)
@@ -27,7 +33,7 @@ export default ({ app }, inject) => {
     const beforeLanguageSwitch = app.i18n.beforeLanguageSwitch
     app.i18n.beforeLanguageSwitch = (oldLocale, newLocale) => {
       beforeLanguageSwitch(oldLocale, newLocale)
-      const newValidatorLocale = nuxti18n.locale[newLocale] || newLocale
+      const newValidatorLocale = getLocale(nuxti18n, newLocale)
       import(`vee-validate/dist/locale/${newValidatorLocale}`).then(dic => {
         app.validator.localize(newValidatorLocale, dic)
       })

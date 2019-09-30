@@ -14,7 +14,7 @@ module.exports = function nuxtValidate (moduleOptions) {
 
   // Register plugin
   this.addPlugin({
-    src: resolve(__dirname, 'plugin.js'),
+    src: resolve(__dirname, '..', 'templates', 'plugin.js'),
     fileName: 'vee-validate.js',
     options: {
       nuxtValidateOptions,
@@ -24,4 +24,4 @@ module.exports = function nuxtValidate (moduleOptions) {
   })
 }
 
-module.exports.meta = require('./package.json')
+module.exports.meta = require('../package.json')

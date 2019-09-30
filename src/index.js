@@ -1,16 +1,17 @@
 const { resolve } = require('path')
 
-const defaults = {
-  lang: 'en'
-}
-
 module.exports = function nuxtValidate (moduleOptions) {
-  const options = Object.assign({}, defaults, this.options.nuxtValidate, moduleOptions)
+  const options = Object.assign({}, this.options.nuxtValidate, moduleOptions)
+
+  this.nuxt.hook('build:before', () => {
+    this.options.build.transpile.push('vee-validate/dist/rules')
+  })
 
   // Remove module options
   const nuxtValidateOptions = Object.assign({}, options)
   delete nuxtValidateOptions.lang
   delete nuxtValidateOptions.nuxti18n
+  delete nuxtValidateOptions.rules
 
   // Register plugin
   this.addPlugin({
@@ -19,7 +20,8 @@ module.exports = function nuxtValidate (moduleOptions) {
     options: {
       nuxtValidateOptions,
       lang: moduleOptions.lang,
-      nuxti18n: moduleOptions.nuxti18n
+      nuxti18n: moduleOptions.nuxti18n,
+      rules: moduleOptions.rules
     }
   })
 }

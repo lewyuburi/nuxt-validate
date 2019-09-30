@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/lewyuburi/nuxt-validate#readme",
   "dependencies": {
-    "vee-validate": "^2.2.15"
+    "vee-validate": "^3.0.8"
   },
   "files": [
     "templates"

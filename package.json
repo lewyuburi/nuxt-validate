@@ -4,7 +4,7 @@
   "description": "Simple Nuxt input validation module using vee-validate",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,11 @@
   "homepage": "https://github.com/lewyuburi/nuxt-validate#readme",
   "dependencies": {
     "vee-validate": "^3.0.8"
+  },
+  "devDependencies": {
+    "@nuxtjs/module-test-utils": "latest",
+    "jest": "^24.9.0",
+    "nuxt-edge": "latest"
   },
   "files": [
     "templates"

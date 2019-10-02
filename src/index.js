@@ -19,9 +19,9 @@ module.exports = function nuxtValidate (moduleOptions) {
     fileName: 'vee-validate.js',
     options: {
       nuxtValidateOptions,
-      lang: moduleOptions.lang,
-      nuxti18n: moduleOptions.nuxti18n,
-      rules: moduleOptions.rules
+      lang: options.lang,
+      nuxti18n: options.nuxti18n,
+      rules: options.rules
     }
   })
 }

@@ -3,27 +3,19 @@ import { ValidationObserver, ValidationProvider, extend, localize, configure } f
 <% if (options.lang) { %>
 import <%= options.lang %> from 'vee-validate/dist/locale/<%= options.lang %>.json'
 <% } %>
-<%
-if (Array.isArray(options.rules)) {
-  for (let rule in rules) {
-%>
-import <%= rule %> from 'vee-validate/dist/rules/<%= rule %>'
-<%
-  }
-  for (let rule in rules) {
-%>
+<% if (Array.isArray(options.rules)) { %>
+import { <%= options.rules.join(', ') %> } from 'vee-validate/dist/rules'
+<% for (let rule in options.rules) { %>
 <% if (options.lang) { %>
-    extend('<%= rule %>', {
-      ...<%= rule %>,
-      message: <%= options.lang %>.messages['<%= rule %>']
-    });
+extend('<%= options.rules[rule] %>', {
+  ...<%= options.rules[rule] %>,
+  message: <%= options.lang %>.messages['<%= options.rules[rule] %>']
+});
 <% } else { %>
-    extend('<%= rule %>', <%= rule %>)
+extend('<%= options.rules[rule] %>', <%= options.rules[rule] %>)
 <% } %>
-<%
-  }
-} else {
-%>
+<% } %>
+<% } else { %>
 import * as rules from 'vee-validate/dist/rules'
 
 for (let rule in rules) {
@@ -36,9 +28,7 @@ for (let rule in rules) {
   extend(rule, rules[rule])
 <% } %>
 }
-<%
-}
-%>
+<% } %>
 
 const getLocale = (opt, locale) => {
   if (typeof opt === 'object' && opt.locale[locale]) {
@@ -56,7 +46,7 @@ Vue.component('ValidationProvider', ValidationProvider)
 Vue.component('ValidationObserver', ValidationObserver)
 
 export default ({ app }, inject) => {
-  const nuxti18n = <%= JSON.stringify(options.nuxti18n) %>
+  const nuxti18n = <%= options.nuxti18n ? JSON.stringify(options.nuxti18n) : 'null' %>
   if (nuxti18n && app.i18n) {
     const validatorLocale = getLocale(nuxti18n, app.i18n.locale)
     import(`vee-validate/dist/locale/${validatorLocale}.json`).then(dic => {

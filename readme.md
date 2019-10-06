@@ -6,7 +6,7 @@
   <a href="https://www.npmjs.com/package/nuxt-validate"><img src="https://badgen.net/npm/license/nuxt-validate" alt="License"></a>
 </p>
 
-Nuxt.js module for validations using [Vee-Validate](https://github.com/baianat/vee-validate)
+Nuxt.js module for validations using [Vee-Validate](https://github.com/logaretm/vee-validate)
 
 ## Install
 
@@ -31,8 +31,27 @@ module.exports = {
       }
       ...
       // regular vee-validate options
+      // https://github.com/logaretm/vee-validate/blob/master/docs/configuration.md
     }]
   ]
+}
+```
+
+### Using top level options
+
+```js
+module.exports = {
+  modules: [
+    'nuxt-validate'
+  ],
+  nuxtValidate: {
+    lang: 'es',
+    nuxti18n: {
+      locale: {
+        'zh-CN': 'zh_CN'
+      }
+    }
+  }
 }
 ```
 
@@ -40,16 +59,29 @@ module.exports = {
 
 #### `lang`
 
-- Default: `en`
+- Default: `undefined`
 
-The `lang` option accepts the name file placed on the [locale dir](https://github.com/baianat/vee-validate/tree/master/locale) of Vee-Validate repository without the extension.
+The `lang` option accepts the name file placed on the [locale dir](https://github.com/logaretm/vee-validate/tree/master/locale) of Vee-Validate repository without the extension.
+
+#### `rules`
+
+- Default: `undefined`
+
+If `undefined`, importing all rules.
+When listed from [validation-rules](https://logaretm.github.io/vee-validate/api/rules.html#validation-rules), importing it.
+
+```js
+nuxti18n: {
+  rules: ['alpha_dash', 'min']
+}
+```
 
 #### `nuxti18n`
 
 - Default: `undefined`
 
 When `nuxti18n` option is set as a `true`, Vee-Validate's locale changes with nuxt-i18n's locale.  
-If nuxt-i18n's locale and Vee-Validate's [locale](https://github.com/baianat/vee-validate/tree/master/locale) are different, set `locale` object to convert locale code.
+If nuxt-i18n's locale and Vee-Validate's [locale](https://github.com/logaretm/vee-validate/tree/master/locale) are different, set `locale` object to convert locale code.
 
 ```js
 nuxti18n: {
@@ -61,8 +93,36 @@ nuxti18n: {
 }
 ```
 
-**notice:** If you use nuxt-i18n module, declare the nuxt-validate module at before it.
+:warning: **notice:** If you use nuxt-i18n module, declare the nuxt-validate module at before it.
 
 ## Documentation
 
-Read the [official Vee-Validate documentation and demos](https://baianat.github.io/vee-validate/).
+Read the [official Vee-Validate documentation and demos](https://logaretm.github.io/vee-validate/).
+
+## FAQ
+
+### How to add custom validation methods?
+
+We recommend using plugins.
+
+`nuxt.config.js`
+
+```js
+module.exports = {
+  plugins: ["~plugins/validate.js"],
+}
+```
+
+`plugins/validate.js`
+
+```js
+import { extend } from "vee-validate";
+
+extend("my-validation", {
+  message: "This {_field_} is invalid.",
+  validate: value => {
+    // ...
+    return true;
+  }
+});
+```

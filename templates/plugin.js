@@ -38,7 +38,6 @@ const getLocale = (opt, locale) => {
 }
 
 <% if (options.nuxtValidateOptions && Object.keys(options.nuxtValidateOptions).length > 0) { %>
-// https://github.com/logaretm/vee-validate/blob/master/docs/configuration.md
 configure(<%= JSON.stringify(options.nuxtValidateOptions) %>);
 <% } %>
 

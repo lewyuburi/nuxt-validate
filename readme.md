@@ -31,7 +31,7 @@ module.exports = {
       }
       ...
       // regular vee-validate options
-      // https://github.com/logaretm/vee-validate/blob/master/docs/configuration.md
+      // https://github.com/logaretm/vee-validate/blob/main/docs/content/api/configuration.md
     }]
   ]
 }

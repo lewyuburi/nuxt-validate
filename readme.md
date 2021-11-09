@@ -61,7 +61,7 @@ module.exports = {
 
 - Default: `undefined`
 
-The `lang` option accepts the name file placed on the [locale dir](https://github.com/logaretm/vee-validate/tree/master/locale) of Vee-Validate repository without the extension.
+The `lang` option accepts the name file placed on the [locale dir](https://github.com/logaretm/vee-validate/tree/main/packages/i18n/src/locale) of Vee-Validate repository without the extension.
 
 #### `rules`
 

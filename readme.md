@@ -68,10 +68,11 @@ The `lang` option accepts the name file placed on the [locale dir](https://githu
 - Default: `undefined`
 
 If `undefined`, importing all rules.
-When listed from [validation-rules](https://logaretm.github.io/vee-validate/api/rules.html#validation-rules), importing it.
+When listed from [validation-rules](https://vee-validate.logaretm.com/v4/guide/global-validators#available-rules), importing it.
+Rules for [vee-validate v3 (vue 2.x)](https://vee-validate.logaretm.com/v3/guide/rules.html#rules)
 
 ```js
-nuxti18n: {
+nuxtValidate: {
   rules: ['alpha_dash', 'min']
 }
 ```

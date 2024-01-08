@@ -1,3 +1,7 @@
+# Deprecated
+
+Use [Vee-validate](https://nuxt.com/modules/vee-validate)'s official module instead
+
 # Nuxt Validate
 
 <p>
